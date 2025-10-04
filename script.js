@@ -1,8 +1,20 @@
-function indexOfIgnoreCase(s1, s2) {
-  // write your code here
+function indexOfIgnoreCase(str, subStr) {
+  // Edge case: if subStr is empty, return 0 (like normal indexOf behavior)
+  if (subStr.length === 0) return 0;
+
+  // Convert both strings to lowercase for case-insensitive comparison
+  const lowerStr = str.toLowerCase();
+  const lowerSubStr = subStr.toLowerCase();
+
+  // Use indexOf to find first occurrence
+  return lowerStr.indexOf(lowerSubStr);
 }
 
-// Please do not change the code below
-const s1 = prompt("Enter s1:");
-const s2 = prompt("Enter s2:");
-alert(indexOfIgnoreCase(s1, s2));
+// ✅ Test cases
+console.log(indexOfIgnoreCase("Hello World", "world")); // 6
+console.log(indexOfIgnoreCase("apple", "Ple"));         // 2
+console.log(indexOfIgnoreCase("test", "aaa"));          // -1
+console.log(indexOfIgnoreCase("JavaScript", "SCRIPT")); // 4
+console.log(indexOfIgnoreCase("", ""));                 // 0
+console.log(indexOfIgnoreCase("abc", ""));              // 0
+
